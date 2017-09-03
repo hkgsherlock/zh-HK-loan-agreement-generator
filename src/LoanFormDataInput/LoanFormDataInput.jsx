@@ -77,14 +77,6 @@ class LoanFormDataInput extends React.Component {
         return (
             <Segment className="data-input" color='orange'>
                 <Form className="form">
-                    <Button animated='fade' fluid color="green" onClick={refresh}>
-                        <Button.Content visible>
-                            <Icon name="refresh" />
-                        </Button.Content>
-                        <Button.Content hidden>
-                            更新資料
-                        </Button.Content>
-                    </Button>
                     <Segment.Group>
                         <Segment inverted color='yellow'>
                             <h4>借款資料</h4>

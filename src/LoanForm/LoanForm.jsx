@@ -20,7 +20,7 @@ const LoanForm = ({
     tillDate.setMonth(tillDate.getMonth() + durationMonths);
 
     return (
-        <div className="paper">
+        <div className='paper'>
             <div className="loan-form">
                 <h1 className="title">借款協議／合約</h1>
 

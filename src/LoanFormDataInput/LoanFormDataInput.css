@@ -1,10 +1,14 @@
 .data-input {
-    width: 210mm;
-    margin: 0 auto 50px auto !important;
+    /*width: 210mm;
+    margin: 0 auto 50px auto !important;*/
+    position: sticky !important;
+    top: 0;
+    min-height: 100vh;
+    margin: 0;
 }
 
 .form {
-    margin: 2em !important;
+    /*margin: 2em !important;*/
 }
 
 .react-datepicker-wrapper, .react-datepicker__input-container {

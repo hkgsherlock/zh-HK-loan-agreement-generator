@@ -1,4 +1,6 @@
 import React from 'react';
+import { Grid } from 'semantic-ui-react';
+
 import LoanForm from './LoanForm/';
 import DataInput from './LoanFormDataInput';
 import LoanFormDataInput from './LoanFormDataInput';
@@ -39,10 +41,16 @@ class App extends React.Component {
         const { data } = this.state;
 
         return (
-            <div className="container">
-                <DataInput onNewState={(s) => this.setState({data: s})}/>
-                <LoanForm {...data} />
-            </div>
+            <Grid>
+                <Grid.Row>
+                    <Grid.Column width={6}>
+                        <DataInput onNewState={(s) => this.setState({data: s})}/>
+                    </Grid.Column>
+                    <Grid.Column width={10}>
+                        <LoanForm {...data} />
+                    </Grid.Column>
+                </Grid.Row>
+            </Grid>
         );
     }
 }
