@@ -1,0 +1,32 @@
+.lender-borrower-info-container {
+    display: table;
+    width: 100%;
+    margin: 2em 0;
+}
+
+.lender-borrower-info {
+    display: table-cell;
+    border: 1px #999 solid;
+    width: 50%;
+    padding: .5em;
+}
+
+.lender-borrower-info h1,
+.lender-borrower-info h2,
+.lender-borrower-info h3,
+.lender-borrower-info h4,
+.lender-borrower-info h5,
+.lender-borrower-info h6
+{margin: .5em 0;}
+
+table { width: 100%; border-spacing: 0; border-collapse: collapse; table-layout:fixed; }
+th, td { text-align: left; border-bottom: 1px #eee solid; padding: .25em; }
+tr:first-child * { border-top: none; }
+tr *:first-child { border-left: none; }
+tr:last-child * { border-bottom: none; }
+tr *:last-child { border-right: none; }
+th { width: 10em; }
+th:after { content: '：' }
+td {
+    overflow-wrap: break-word;
+}

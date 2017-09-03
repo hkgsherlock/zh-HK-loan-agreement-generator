@@ -1,0 +1,51 @@
+@media only screen {
+    .paper {
+        margin: 0 auto;
+        display: block;
+        width: 210mm;
+        height: 297mm;
+        padding: 12.5mm;
+        border: 1px #ccc solid;
+    }
+
+    .loan-form {
+        margin: 0 auto;
+        border: 1px #ccc dashed;
+        width: 189mm;
+        height: 276mm;
+    }
+}
+
+.loan-form {
+    display: block;
+    /*border: 1px #ccc dashed;*/
+}
+
+.title {
+    text-align: center;
+    display: block;
+    margin-bottom: .5em;
+}
+
+ol, ul {
+    padding: 0 0 0 2em;
+}
+
+ol li, ul li {
+    margin: .5em 0;
+}
+
+code, pre, pre * {
+    font-family: Consolas, "Courier New", monospace;
+    background-color: #e6e6ee;
+    color: #334;
+    padding: .1em .5em;
+}
+
+em {
+    font-style: normal;
+    background-color: #fec;
+    font-weight: bold;
+    padding: .1em .25em;
+    color: #630;
+}
