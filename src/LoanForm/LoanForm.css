@@ -56,3 +56,21 @@ em {
     padding: .1em .25em;
     color: #630;
 }
+
+@media only screen and (max-width: 767px) {
+    .paper {
+        margin: -1em;
+        padding: 0;
+    }
+
+    .loan-form {
+        margin: 1em 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .paper, .loan-form {
+        width: initial;
+        height: initial;
+    }
+}

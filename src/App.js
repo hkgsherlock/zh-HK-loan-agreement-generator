@@ -3,7 +3,6 @@ import { Grid } from 'semantic-ui-react';
 
 import LoanForm from './LoanForm/';
 import DataInput from './LoanFormDataInput';
-import LoanFormDataInput from './LoanFormDataInput';
 
 import './App.css';
 
@@ -41,7 +40,7 @@ class App extends React.Component {
         const { data } = this.state;
 
         return (
-            <Grid>
+            <Grid stackable>
                 <Grid.Row>
                     <Grid.Column width={6}>
                         <DataInput onNewState={(s) => this.setState({data: s})}/>

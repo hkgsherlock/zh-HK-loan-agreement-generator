@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Button, Icon, Input, TextArea, Segment } from 'semantic-ui-react';
+import { Form, Button, Icon, Input, TextArea, Segment, Grid } from 'semantic-ui-react';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -46,15 +46,15 @@ class LoanFormDataInput extends React.Component {
                 hkid: this.state.borrower_hkid,
                 address: this.state.borrower_address,
             },
-            signDate: this.state.signDate.toDate(),
+            signDate: (this.state.signDate || moment()).toDate(),
             amount: this.state.amount,
             interestRate: this.state.interestRate,
             penaltyRate: this.state.penaltyRate,
-            startPayDate: this.state.startPayDate.toDate(),
+            startPayDate: (this.state.startPayDate || moment()).toDate(),
             monthlyPayAmount: this.state.monthlyPayAmount,
             monthlyPayDate: this.state.monthlyPayDate,
             durationMonths: this.state.durationMonths,
-        }
+        };
     }
 
     handleChange(field, e) {
@@ -94,30 +94,48 @@ class LoanFormDataInput extends React.Component {
                         </Segment.Group>
                         <Segment.Group horizontal>
                             <Segment>
-                                <DatePicker
-                                    placeholderText="簽約日期"
-                                    todayButton={"今日"}
-                                    dateFormat="YYYY 年 MM 月 DD 日"
-                                    selected={this.state.signDate}
-                                    minDate={moment()}
-                                    onChange={(e) => this.handleDateChange('signDate', e)}
-                                />
+								<Grid>
+									<Grid.Column width={2}>
+			                            <Icon.Group fitted>
+											<Icon name='money' fitted circular inverted color='teal' />
+											<Icon corner name='add' color='teal' />
+										</Icon.Group>
+									</Grid.Column>
+									<Grid.Column width={14}>
+		                                <DatePicker
+		                                    placeholderText="簽約日期"
+		                                    todayButton={"今日"}
+		                                    dateFormat="YYYY 年 MM 月 DD 日"
+		                                    selected={this.state.signDate}
+		                                    minDate={moment().startOf('date')}
+		                                    maxDate={moment(this.state.startPayDate).startOf('date').subtract(1, 'days')}
+		                                    onChange={(e) => this.handleDateChange('signDate', e)}
+		                                />
+									</Grid.Column>
+								</Grid>
                             </Segment>
                             <Segment>
-                                <DatePicker
-                                    placeholderText="開始還款日期"
-                                    todayButton={"今日"}
-                                    dateFormat="YYYY 年 MM 月 DD 日"
-                                    selected={this.state.startPayDate}
-                                    minDate={(this.state.signDate || moment()).add(1, 'days')}
-                                    onChange={(e) => this.handleDateChange('startPayDate', e)}
-                                />
+								<Grid>
+									<Grid.Column width={2}>
+										<Icon.Group fitted>
+											<Icon name='money' fitted circular inverted color='pink' />
+											<Icon corner name='minus' color='pink' />
+										</Icon.Group>
+									</Grid.Column>
+									<Grid.Column width={14}>
+		                                <DatePicker
+		                                    placeholderText="開始還款日期"
+		                                    todayButton={"今日"}
+		                                    dateFormat="YYYY 年 MM 月 DD 日"
+		                                    selected={this.state.startPayDate}
+		                                    minDate={moment(this.state.signDate).startOf('date').add(1, 'days')}
+		                                    onChange={(e) => this.handleDateChange('startPayDate', e)}
+		                                />
+									</Grid.Column>
+								</Grid>
                             </Segment>
                         </Segment.Group>
                         <Segment.Group horizontal>
-                            <Segment>
-                                <Input fluid icon='add to calendar' iconPosition='left' placeholder='開始還款日期' onChange={(e) => this.handleChange('startPayDate', e)} />
-                            </Segment>
                             <Segment>
                                 <Input fluid icon='pointing right' iconPosition='left' placeholder='每月還款金額' onChange={(e) => this.handleChange('monthlyPayAmount', e)} />
                             </Segment>
