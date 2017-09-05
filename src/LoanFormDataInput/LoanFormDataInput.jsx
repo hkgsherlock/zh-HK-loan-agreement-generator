@@ -47,17 +47,18 @@ class LoanFormDataInput extends React.Component {
                 address: this.state.borrower_address,
             },
             signDate: (this.state.signDate || moment()).toDate(),
-            amount: this.state.amount,
-            interestRate: this.state.interestRate,
-            penaltyRate: this.state.penaltyRate,
+            amount: parseFloat(this.state.amount),
+            interestRate: parseFloat(this.state.interestRate),
+            penaltyRate: parseFloat(this.state.penaltyRate),
             startPayDate: (this.state.startPayDate || moment()).toDate(),
-            monthlyPayAmount: this.state.monthlyPayAmount,
+            monthlyPayAmount: parseFloat(this.state.monthlyPayAmount),
             monthlyPayDate: this.state.monthlyPayDate,
-            durationMonths: this.state.durationMonths,
+            durationMonths: parseInt(this.state.durationMonths, 10),
         };
     }
 
     handleChange(field, e) {
+
         this.setState({ [field]: e.target.value });
     }
 
